@@ -31,8 +31,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         goButton.setOnClickListener {
-            webView.loadUrl(urlEditText.text.toString())
+            webView.loadUrl(fixUrl(urlEditText.text.toString()))
         }
 
     }
+
+    fun fixUrl(url : String) : String = if (!url.startsWith("http")) { "https://$url"} else url
 }
