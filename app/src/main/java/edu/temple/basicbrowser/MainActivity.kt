@@ -21,11 +21,17 @@ class MainActivity : AppCompatActivity() {
         goButton = findViewById(R.id.goButton)
         webView = findViewById(R.id.webView)
 
+
+
         // Allow your browser to intercept hyperlink clicks
         webView.webViewClient = object: WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
             }
+        }
+
+        goButton.setOnClickListener {
+            webView.loadUrl(urlEditText.text.toString())
         }
 
     }
